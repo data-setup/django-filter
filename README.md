@@ -18,14 +18,15 @@ $ source venv/bin/activate
 (venv) $ pip install -r requirements.txt
 (venv) $ python manage.py createsuperuser
 (venv) $ python manage.py runserver
+```
 
 Access the site at http://127.0.0.1:8000
 
 # Docker
+
 To use Docker with PostgreSQL as the database, update the DATABASES section of django_project/settings.py as follows:
 
-python
-Copy code
+```bash
 # django_project/settings.py
 DATABASES = {
     "default": {
@@ -37,22 +38,23 @@ DATABASES = {
         "PORT": 5432,  # default postgres port
     }
 }
+```
+
 Then build the Docker image, run the container, and execute standard commands within Docker:
 
-bash
-Copy code
+```bash
 $ docker-compose up -d --build
 $ docker-compose exec web python manage.py migrate
 $ docker-compose exec web python manage.py createsuperuser
+```
+
 Access the site at http://127.0.0.1:8000
 
-Options: Create products.json
+### Options: Create products.json
 To populate your database with sample data from a JSON file, run:
 
-bash
-Copy code
+```bash
 python manage.py loaddata products.json
-r
-Copy code
+```
 
-This updated README.md provides clearer instructions, corrects formatting, and adds missing information for better clar
+This README.md provides clearer instructions
