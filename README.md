@@ -1,45 +1,31 @@
-# Django Project with Postgres, Gunicorn, and Nginx
+# Django Filter Project with Postgres, Gunicorn, and Nginx
 
 ## Features
 
-- Django 5.0 & Python 3.12
-- Install via [Pip](https://pypi.org/project/pip/) or [Docker](https://www.docker.com/)
-- User log in/out, sign up, password reset via [django-allauth](https://github.com/pennersr/django-allauth)
-- Static files configured with [Whitenoise](http://whitenoise.evans.io/en/stable/index.html)
-- Styling with [Bootstrap v5](https://getbootstrap.com/)
+- Built with Django 5.0 & Python 3.12
+- Easy installation via [Pip](https://pypi.org/project/pip/) or [Docker](https://www.docker.com/)
+- User authentication functionalities including log in/out, sign up, and password reset, powered by [django-allauth](https://github.com/pennersr/django-allauth)
+- Efficient serving of static files using [Whitenoise](http://whitenoise.evans.io/en/stable/index.html)
+- Styling with the latest version of [Bootstrap (v5)](https://getbootstrap.com/)
 - DRY forms with [django-crispy-forms](https://github.com/django-crispy-forms/django-crispy-forms)
-- Custom 404, 500, and 403 error pages
--
+- Custom error pages for 404, 500, and 403 errors
 
 # Installation
 
-$ python -m venv venv
-
-## Windows
-
-$ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-$ .venv\Scripts\Activate.ps1
-
-## macOS
-
+```bash
 python3 -m venv venv
-
 $ source venv/bin/activate
-
-(venv) $ pip install -r requirements.txt
 (venv) $ pip install -r requirements.txt
 (venv) $ python manage.py createsuperuser
 (venv) $ python manage.py runserver
 
-Load the site at http://127.0.0.1:8000
+Access the site at http://127.0.0.1:8000
 
 # Docker
+To use Docker with PostgreSQL as the database, update the DATABASES section of django_project/settings.py as follows:
 
-[](https://github.com/wsvincent/djangox/blob/main/README.md#docker)
-
-To use Docker with PostgreSQL as the database update the `DATABASES` section of `django_project/settings.py` to reflect the following:
-
-```python
+python
+Copy code
 # django_project/settings.py
 DATABASES = {
     "default": {
@@ -51,17 +37,22 @@ DATABASES = {
         "PORT": 5432,  # default postgres port
     }
 }
+Then build the Docker image, run the container, and execute standard commands within Docker:
 
-```
-
-And then proceed to build the Docker image, run the container, and execute the standard commands within Docker.
-
+bash
+Copy code
 $ docker-compose up -d --build
 $ docker-compose exec web python manage.py migrate
 $ docker-compose exec web python manage.py createsuperuser
+Access the site at http://127.0.0.1:8000
 
-Load the site at http://127.0.0.1:8000
+Options: Create products.json
+To populate your database with sample data from a JSON file, run:
 
-## **Create products.json**
+bash
+Copy code
+python manage.py loaddata products.json
+r
+Copy code
 
-`python manage.py loaddata products.json`
+This updated README.md provides clearer instructions, corrects formatting, and adds missing information for better clar
