@@ -50,8 +50,8 @@ INSTALLED_APPS = [
     # apps
     "pages",
     "users",
-    "products",
-    "chat",
+    #"products",
+    
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#middleware
